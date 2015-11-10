@@ -1,0 +1,32 @@
+{
+  "name": "mocha-selenium-reporter",
+  "version": "0.0.1",
+  "description": "Mocha reporter to stream events to a webdriver client,",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mocha",
+    "tests",
+    "selenium",
+    "webdriver"
+  ],
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "ecmaFeatures": {
+      "blockBindings": true
+    }
+  },
+  "author": "Kristoffer Snabb",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "koa": "^1.1.1",
+    "koa-static": "^1.5.1",
+    "mocha": "^2.3.3",
+    "selenium-webdriver": "^2.48.0"
+  }
+}
