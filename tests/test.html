@@ -2,37 +2,51 @@
 <head>
   <meta charset="utf-8">
   <title>Mocha Tests</title>
-  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
+  <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet"/>
 </head>
 <body>
-  <div id="mocha"></div>
-  <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
-  <script>
-  var events = [];
-  function seleniumReporter(runner) {
-    function record(eventType) {
-      runner.on(eventType, function (arg, err) {
-        console.log(arg);
-        console.log(err);
-        if (arg !== undefined) events.push([eventType,
-          {
-            "title": arg.title,
-            "slow": arg.slow(),
-            "state": arg.state,
-            "err": err,
-            "fullTitle": arg.fullTitle()
-          }]);
-        else events.push([eventType, arg]);
-      });
+<div id="mocha">Running tests</div>
+<script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+<script>
+  /*
+  function parseTest(test) {
+    console.log(test);
+    var eventType = test.state;
+    if (test.pending) {
+      eventType = "pending";
+    } else if (eventType === "failed") {
+      eventType = "fail";
+    } else if (eventType === "passed") {
+      eventType = "pass";
     }
-    ['start', 'test end', 'end', 'pending', 'suite end', 'pass', 'fail', 'suite'].forEach(record);
+    console.log([eventType, {}]);
+    console.log(["test end", {}]);
   }
-  </script>
-  <script>mocha.reporter(seleniumReporter);mocha.setup('bdd')</script>
-  <script src="test.js"></script>
-  <script>
-    mocha.checkLeaks();
-    mocha.run();
-  </script>
+  function parseSuite(suite) {
+    console.log(suite);
+    console.log(["suite", {
+      "title": suite.title
+    }]);
+    suite.tests.forEach(function (test) {
+      parseTest(test);
+    });
+    suite.suites.forEach(function (suite) {
+      parseSuite(suite);
+    })
+    console.log(["suite end", {}])
+  }
+  function parseMocha(mocha) {
+    console.log(mocha);
+    console.log(["start", undefined]);
+    parseSuite(mocha.suite);
+    console.log(["end", undefined])
+  }  */
+</script>
+<script>mocha.setup('bdd')</script>
+<script src="test.js"></script>
+<script>
+  mocha.checkLeaks();
+  mocha.run();
+</script>
 </body>
 </html>
