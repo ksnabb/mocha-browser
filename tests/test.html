@@ -7,41 +7,7 @@
 <body>
 <div id="mocha">Running tests</div>
 <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
-<script>
-  /*
-  function parseTest(test) {
-    console.log(test);
-    var eventType = test.state;
-    if (test.pending) {
-      eventType = "pending";
-    } else if (eventType === "failed") {
-      eventType = "fail";
-    } else if (eventType === "passed") {
-      eventType = "pass";
-    }
-    console.log([eventType, {}]);
-    console.log(["test end", {}]);
-  }
-  function parseSuite(suite) {
-    console.log(suite);
-    console.log(["suite", {
-      "title": suite.title
-    }]);
-    suite.tests.forEach(function (test) {
-      parseTest(test);
-    });
-    suite.suites.forEach(function (suite) {
-      parseSuite(suite);
-    })
-    console.log(["suite end", {}])
-  }
-  function parseMocha(mocha) {
-    console.log(mocha);
-    console.log(["start", undefined]);
-    parseSuite(mocha.suite);
-    console.log(["end", undefined])
-  }  */
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/should.js/7.1.1/should.min.js"></script>
 <script>mocha.setup('bdd')</script>
 <script src="test.js"></script>
 <script>

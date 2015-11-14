@@ -12,4 +12,8 @@ describe("test suite", function () {
   it("should fail", function () {
     throw new Error("failing test");
   });
+
+  it("should fail and report the actual and expected", function () {
+    "hello".should.equal("world");
+  });
 });

@@ -56,6 +56,9 @@ driver
         evt[1].fullTitle = function () {
           return evt[1]._fullTitle;
         };
+        evt[1].slow = function () {
+          return evt[1]._slow;
+        };
       }
       if (evt[0] === "fail") {
         ee.emit(evt[0], evt[1], evt[1].err);

@@ -10,15 +10,29 @@ function parseTest(test) {
     eventType = 'pass';
   }
   events.push([eventType, {
-    "err": test.err
+    "err": test.err !== undefined ? {
+      "message": test.err.message,
+      "stack": test.err.stack,
+      "actual": test.err.actual,
+      "expected": test.err.expected
+    } : undefined,
+    "title": test.title,
+    "type": test.type,
+    "state": test.state,
+    "timedOut": test.timedOut,
+    "duration": test.duration,
+    "_fullTitle": test.fullTitle(),
+    "_slow": test.slow(),
+    "_trace": test._trace
   }]);
   events.push(['test end', {}]);
 }
 function parseSuite(suite) {
   console.log(suite);
   events.push(['suite', {
-    'title': suite.title
-}]);
+    "title": suite.title,
+    "root": suite.root
+  }]);
   suite.tests.forEach(function (test) {
     parseTest(test);
   });
