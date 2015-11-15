@@ -1,6 +1,5 @@
 var events = [];
 function parseTest(test) {
-  console.log(test);
   var eventType = test.state;
   if (test.pending) {
     eventType = 'pending';
@@ -28,7 +27,6 @@ function parseTest(test) {
   events.push(['test end', {}]);
 }
 function parseSuite(suite) {
-  console.log(suite);
   events.push(['suite', {
     "title": suite.title,
     "root": suite.root
@@ -42,7 +40,6 @@ function parseSuite(suite) {
   events.push(['suite end', {}])
 }
 function parseMocha(mocha) {
-  console.log(mocha);
   events.push(['start', undefined]);
   parseSuite(mocha.suite);
   events.push(['end', undefined])
