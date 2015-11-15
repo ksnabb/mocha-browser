@@ -12,7 +12,7 @@ program
 var root = program.root;
 var entry = program.entry;
 var browser = program.browser || "firefox";
-var port = 3000;
+var port = 1337;
 
 var koa = require("koa");
 var app = koa();
