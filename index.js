@@ -41,7 +41,7 @@ driver.wait(function() {
 }, 10000);
 
 var fs = require('fs');
-var parseEventsScript = fs.readFileSync('./parseEvents.js', 'utf8');
+var parseEventsScript = fs.readFileSync(__dirname + '/parseEvents.js', 'utf8');
 
 driver
   .executeScript(parseEventsScript)
