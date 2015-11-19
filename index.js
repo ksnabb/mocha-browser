@@ -30,7 +30,7 @@ new mocha._reporter(ee);
 
 var webdriver = require("selenium-webdriver");
 var driver = new webdriver.Builder()
-  .usingServer("http://" + process.env.SAUCE_USER + ":" + process.env.SAUCE_ACCESS_KEY + "@localhost:4445/wd/hub")
+  .usingServer("http://" + process.env.SAUCE_USERNAME + ":" + process.env.SAUCE_ACCESS_KEY + "@localhost:4445/wd/hub")
   .forBrowser(browser)
   .build();
 
