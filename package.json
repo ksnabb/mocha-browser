@@ -4,7 +4,7 @@
   "description": "Mocha reporter to stream events to a webdriver client,",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./index.js --root tests --entry test.html"
   },
   "keywords": [
     "mocha",
