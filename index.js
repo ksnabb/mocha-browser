@@ -6,12 +6,10 @@ program
   .version("0.0.1")
   .option("-r, --root <root>", "root folder for the files to serve")
   .option("-e, --entry <entry>", "Entry html file to serve to run the mocha tests")
-  .option("-b, --browser <browser>", "browser to run the test on e.g. firefox")
   .parse(process.argv);
 
 var root = program.root;
 var entry = program.entry;
-var browser = program.browser || "firefox";
 var port = 1337;
 
 var koa = require("koa");
@@ -31,7 +29,7 @@ new mocha._reporter(ee);
 var webdriver = require("selenium-webdriver");
 var driver = new webdriver.Builder()
   .usingServer("http://" + process.env.SAUCE_USERNAME + ":" + process.env.SAUCE_ACCESS_KEY + "@localhost:4445/wd/hub")
-  .forBrowser(browser)
+  .withCapabilities(webdriver.Capabilities.chrome())
   .build();
 
 driver.get("http://localhost:" + port + "/" + entry);
